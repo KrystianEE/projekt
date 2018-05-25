@@ -27,4 +27,4 @@ urlpatterns = [
     path('in/', views.InView.as_view(), name="in"),
     path('out/', views.OutView.as_view(), name='out'),
     path('posts/', include('posts.urls', namespace='posts')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -2,8 +2,20 @@
 {% block content %}
   <h1>Oferty:</h1>
   {% for post in post_list %}
-    <h2>{{post.title}}</h2>
-    <img src="{{post.post_image.url}}" alt="Fuck.">
-    <p>{{post.price}}</p>
+  <table id="oferta">
+      <thead>
+        <th>
+          <h2 id="tytolpost">{{post.title}}</h2>
+        </th>
+      </thead>
+      <tr>
+        <td>
+          <img src="{{post.post_image.url}}" width="260px" alt="Nie działa :(">
+        </td>
+        <td>
+          <h4>{{post.price}} PLN</h4>
+        </td>
+      </tr>
+  </table>
   {% endfor %}
 {% endblock content %}

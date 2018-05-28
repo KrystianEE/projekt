@@ -13,6 +13,7 @@ class Post(models.Model):
     description = models.TextField()
     price = models.FloatField()
     post_image = models.ImageField(upload_to='post_picture', blank=True)
+    location = models.CharField(max_length=512)
 
     def __str__(self):
         return self.title

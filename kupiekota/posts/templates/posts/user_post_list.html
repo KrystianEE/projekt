@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h2 id="owner">Oferty urzytkownika {{post_user.username}} :</h2>
+
+  {% for post in post_list %}
+    {% include "posts/_post.html" %}
+    <p></p>
+  {% endfor %}
+
+
+{% endblock content %}

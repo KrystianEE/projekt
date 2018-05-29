@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Oferty:</h1>
+  {% for post in post_list %}
+  <a href="{% url 'posts:single' username=post.user.username pk=post.pk %}">
+    <div class="card text-black bg-light">
+      <div class="card-body">
+
+    {% include "posts/_post.html" %}
+      </div>
+    </div>
+  </a>
+  <p></p>
+  {% endfor %}
+{% endblock content %}

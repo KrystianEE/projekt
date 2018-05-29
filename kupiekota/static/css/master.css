@@ -1,0 +1,40 @@
+body {
+    padding-top: 65px;
+    font-family: 'Muli', sans-serif;
+    padding-bottom: 30px;
+}
+#oferta{
+  text-align: center;
+  align: center;
+}
+td {
+  padding: 20px;
+}
+#tytolpost{
+  align: center;
+}
+table{
+  width: 50%;
+}
+.cena{
+  align: right;
+}
+#smaller-text{
+  font-size: 0.75em;
+}
+.owner{
+  align: center;
+}
+.card{
+  background-color: blue;
+}
+a{
+  color: black;
+  font-family: 'Muli', sans-serif;
+}
+.ownerm{
+  color: red;
+}
+nav{
+  background-color: #f29a15;
+}

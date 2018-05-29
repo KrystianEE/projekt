@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <h1>{{post.title}}</h1>
+  {% if post.post_image %}
+  <img src="{{post.post_image.url}}" width="260px" alt="Nie działa :(">
+  {% else %}
+  <p>*Brak obrazu dla tej oferty*</p>
+  {% endif %}
+  <h4>{{post.price}} PLN</h4>
+
+  <p>{{post.description}}</p>
+
+  <p id="smaller-text">Lokalizacja : {{post.location}}</p>
+  <p id="smaller-text">Oferta urzytkownika:
+    <a href="{% url 'posts:for_user' username=post.user.username %}">
+      {{post.user.username}}
+    </a>
+  </p>
+  {% if user == post.user %}
+    <a class="btn btn-danger" href="{% url 'posts:delete' pk=post.pk %}">Usuń post</a>
+  {% endif %}
+{% endblock content %}

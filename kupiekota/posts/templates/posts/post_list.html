@@ -2,20 +2,14 @@
 {% block content %}
   <h1>Oferty:</h1>
   {% for post in post_list %}
-  <table id="oferta">
-      <thead>
-        <th>
-          <h2 id="tytolpost">{{post.title}}</h2>
-        </th>
-      </thead>
-      <tr>
-        <td>
-          <img src="{{post.post_image.url}}" width="260px" alt="Nie działa :(">
-        </td>
-        <td>
-          <h4>{{post.price}} PLN</h4>
-        </td>
-      </tr>
-  </table>
+  <a href="{% url 'posts:single' username=post.user.username pk=post.pk %}">
+    <div class="card text-black bg-light">
+      <div class="card-body">
+
+    {% include "posts/_post.html" %}
+      </div>
+    </div>
+  </a>
+  <p></p>
   {% endfor %}
 {% endblock content %}

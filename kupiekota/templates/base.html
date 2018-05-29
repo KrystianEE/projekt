@@ -22,13 +22,16 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           {% if user.is_authenticated %}
-          <a class="nav-item nav-link" href="#">Twoje Oferty</a>
+          <a class="nav-item nav-link"
+            href="{% url 'posts:for_user' username=user.username %}">
+            {{user.username}} Oferty
+          </a>
           <a class="nav-item nav-link" href="{% url 'posts:new' %}">Nowa Oferta</a>
           <a class="nav-item nav-link" href="{% url 'posts:post_list' %}">Wszystkie Oferty</a>
           <a class="nav-item nav-link" href="{% url 'accounts:logout' %}">Wyloguj Się</a>
 
           {% else %}
-          <a class="nav-item nav-link" href="#">Wszystkie Oferty</a>
+          <a class="nav-item nav-link" href="{% url 'posts:post_list' %}">Wszystkie Oferty</a>
           <a class="nav-item nav-link" href="{% url 'accounts:login' %}">Zaloguj Się</a>
           <a class="nav-item nav-link" href="{% url 'accounts:signup' %}">Zarejestruj Się</a>
 

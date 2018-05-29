@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Czy chcesz usunąć tą ofertę?</h2>
+<p></p>
+{% include "posts/_post.html" with post=object %}
+
+<form method="post">
+  {% csrf_token %}
+  <input class="btn btn-danger" type="submit" value="Usuń">
+  <a href="{% url 'posts:single' username=user.username pk=object.pk %}">
+    Anuluj
+  </a>
+</form>
+{% endblock content %}

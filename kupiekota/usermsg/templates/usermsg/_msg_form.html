@@ -1,0 +1,6 @@
+<h6>Odpowiedz :</h6>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Wyślij</button>
+</form>

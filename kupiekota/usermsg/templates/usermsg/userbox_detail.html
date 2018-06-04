@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+  {% for usermsg in msgbox.usermsgs.all %}
+    {{ usermsg.content }}
+  {% endfor %}
+  {% include "usermsg/_msg_form.html" %}
+
+{% endblock content %}

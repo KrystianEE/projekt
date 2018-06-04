@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+  <h5>Twoje rozmowy :</h5>
+  {% for object in object_list %}
+    <a href="{% url 'usermsg:boxdetail' username='krystian' pk=object.pk %}">
+      <p>{{object.user1.username}} i {{object.user2.username}}</p>
+    </a>
+  {% endfor %}
+
+
+{% endblock content %}

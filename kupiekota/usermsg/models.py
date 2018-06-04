@@ -21,7 +21,7 @@ class Usermsg(models.Model):
     box = models.ForeignKey(MsgBox, on_delete=models.CASCADE, related_name='usermsgs')
     sender = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField()
-    send_at = models.TimeField(default=timezone.now)
+    send_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.content

@@ -26,6 +26,7 @@
             href="{% url 'posts:for_user' username=user.username %}">
             {{user.username}} Oferty
           </a>
+          <a class="nav-item nav-link" href="{% url 'usermsg:userboxlist' username=request.user.username %}">Wiadomości</a>
           <a class="nav-item nav-link" href="{% url 'posts:new' %}">Nowa Oferta</a>
           <a class="nav-item nav-link" href="{% url 'posts:post_list' %}">Wszystkie Oferty</a>
           <a class="nav-item nav-link" href="{% url 'accounts:logout' %}">Wyloguj Się</a>

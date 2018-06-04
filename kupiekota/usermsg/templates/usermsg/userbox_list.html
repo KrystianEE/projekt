@@ -2,8 +2,12 @@
 {% block content %}
   <h5>Twoje rozmowy :</h5>
   {% for object in object_list %}
-    <a href="{% url 'usermsg:boxdetail' username='krystian' pk=object.pk %}">
-      <p>{{object.user1.username}} i {{object.user2.username}}</p>
+    <a href="{% url 'usermsg:boxdetail' username=cur_user.username pk=object.pk %}">
+      {% if object.user1 == cur_user %}
+      <p>Do {{object.user2.username}}</p>
+      {% else %}
+      <p>Od {{object.user1.username}}</p>
+      {% endif %}
     </a>
   {% endfor %}
 

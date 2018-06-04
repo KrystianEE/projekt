@@ -38,3 +38,9 @@ a{
 nav{
   background-color: #f29a15;
 }
+#contentmsg{
+  padding-bottom: 2px;
+}
+.msgbutton{
+  background-color: #f29a15;
+}

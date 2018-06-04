@@ -1,8 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
-  {% for usermsg in msgbox.usermsgs.all %}
-    {{ usermsg.content }}
+  {% for usermsg in usr_msg %}
+    {% if usermsg.sender == cur_user %}
+    <p id="contentmsg">{{ usermsg.content }}</p>
+    <p id='smaller-text'>  {{ usermsg.sender.username }} o {{ usermsg.send_at}}</p>
+    {% else %}
+    <p id="contentmsg"><strong>{{ usermsg.content }}</strong></p>
+    <p id='smaller-text'>  {{ usermsg.sender.username }} o {{ usermsg.send_at}}</p>
+    {% endif %}
   {% endfor %}
-  {% include "usermsg/_msg_form.html" %}
 
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Wyślij">
+  </form>
 {% endblock content %}

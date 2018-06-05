@@ -1,15 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
   {% for usermsg in usr_msg %}
-    {% if usermsg.sender == cur_user %}
-    <p id="contentmsg">{{ usermsg.content }}</p>
-    <p id='smaller-text'>  {{ usermsg.sender.username }} o {{ usermsg.send_at}}</p>
-    {% else %}
-    <p id="contentmsg"><strong>{{ usermsg.content }}</strong></p>
-    <p id='smaller-text'>  {{ usermsg.sender.username }} o {{ usermsg.send_at}}</p>
-    {% endif %}
+    <div class="{% if usermsg.sender == requset.user %}msg-sender{% else %}msg-receiver{% endif %}">
+        <p id="contentmsg">{{ usermsg.content }}</p>
+        <p id='smaller-text'> {{ usermsg.sender.username }} o {{ usermsg.send_at}}</p>
+    </div>
   {% endfor %}
-
   <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}

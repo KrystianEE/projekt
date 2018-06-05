@@ -28,7 +28,7 @@ class UserBoxListView(LoginRequiredMixin, generic.ListView):
 @login_required
 def create_box(request, post_user):
     user = User.objects.get(username=post_user)
-    box,  = models.MsgBox.objects.get_or_create(user1=request.user, user2=user)
+    box, _ = models.MsgBox.objects.get_or_create(user1=request.user, user2=user)
     return redirect('usermsg:boxdetail', username=request.user.username, pk=box.pk)
 
 

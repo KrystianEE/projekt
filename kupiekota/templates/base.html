@@ -9,7 +9,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static '/css/master.css'%}">
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
-
     <title>KupieKota</title>
   </head>
   <body>
@@ -26,6 +25,7 @@
             href="{% url 'posts:for_user' username=user.username %}">
             {{user.username}} Oferty
           </a>
+          <a class="nav-item nav-link" href="{% url 'usermsg:userboxlist' %}">Wiadomości</a>
           <a class="nav-item nav-link" href="{% url 'posts:new' %}">Nowa Oferta</a>
           <a class="nav-item nav-link" href="{% url 'posts:post_list' %}">Wszystkie Oferty</a>
           <a class="nav-item nav-link" href="{% url 'accounts:logout' %}">Wyloguj Się</a>
@@ -37,6 +37,7 @@
 
           {% endif %}
 
+
         </div>
       </div>
     </nav>
@@ -46,5 +47,6 @@
       {% endblock content %}
     </div>
 
+    </script>
   </body>
 </html>

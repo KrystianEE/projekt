@@ -19,5 +19,7 @@
   </p>
   {% if user == post.user %}
     <a class="btn btn-danger" href="{% url 'posts:delete' pk=post.pk %}">Usuń post</a>
+  {% else %}
+    <a class="btn msgbutton" href="{% url 'usermsg:new_box' post_user=post.user.username %}">Wiadomość</a>
   {% endif %}
 {% endblock content %}

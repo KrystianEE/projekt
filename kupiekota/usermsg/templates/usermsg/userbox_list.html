@@ -2,7 +2,7 @@
 {% block content %}
   <h5 id='msg-heading'>Twoje rozmowy:</h5>
   {% for object in object_list %}
-    <a href="{% url 'usermsg:boxdetail' username=request.user.username pk=object.pk %}">
+    <a href="{% url 'usermsg:boxdetail' pk=object.pk %}">
       {% if object.user1 == request.user %}
       <p>Do {{object.user2.username}}</p>
       {% else %}

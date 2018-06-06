@@ -29,11 +29,11 @@ class UserBoxListView(LoginRequiredMixin, generic.ListView):
 def create_box(request, post_user):
     user = User.objects.get(username=post_user)
     box, _ = models.MsgBox.objects.get_or_create(user1=request.user, user2=user)
-    return redirect('usermsg:boxdetail', username=request.user.username, pk=box.pk)
+    return redirect('usermsg:boxdetail', pk=box.pk)
 
 
 @login_required
-def detail_box(request, username, pk):
+def detail_box(request, pk):
     box = get_object_or_404(models.MsgBox, pk=pk)
 
     if request.user != box.user1 and request.user != box.user2:
@@ -48,7 +48,7 @@ def detail_box(request, username, pk):
             msg.box = box
             msg.sender = request.user
             msg.save()
-            return redirect('usermsg:boxdetail', username=request.user.username, pk=box.pk)
+            return redirect('usermsg:boxdetail', pk=box.pk)
     else:
         form = forms.MsgForm()
 
